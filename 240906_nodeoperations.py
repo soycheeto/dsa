@@ -22,8 +22,8 @@ def insertEnd(head, new_val):
     new_node = Node(new_val) #create new node
     if not head: #if head = None
         return new_node 
+    
     temp = head 
-
     while temp.next: #traverse till last node
         temp = temp.next #add new pointer 
     temp.next = new_node #assign pointer to new node

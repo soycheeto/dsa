@@ -13,7 +13,7 @@ class Queue:
         return self.front is None and self.rear is None
 
     
-    def insert(self, value):
+    def enqueue(self, value):
         new_node = Node(value) 
         if self.is_empty(): 
             self.front = self.rear = new_node
@@ -34,7 +34,12 @@ class Queue:
     
     def print_queue(self):
         if self.is_empty():
-            print
+            print("Queue is empty")
+        else:
+            current = self.front
+            while current:
+                print(current)
+                current = current.next
 
 
 q = Queue()

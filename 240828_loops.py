@@ -18,16 +18,9 @@ class Car:
         self.color = color
         self.model = model
         self.gas = 20
-
-class Car:
-    def __init__(self, model, color):
-        wheels =4
-        self.color = color
-        self.model = model
-        self.gas = 20
     def drive(self, used_gas):
         self.gas-=used_gas
-        if self.gas<0:
+        if self.gas<=0:
             return "no gas is there"
         print("Gas remaining: ", self.gas)
     def fill_gas(self):
