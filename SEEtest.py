@@ -178,17 +178,32 @@ class Queue:
         new = QueueNode(value)
         if self.front is None:
             self.front = self.rear = new
-        
+        self.rear.next = new
+        self.rear = new
 
     def dequeue(self): #remove a value from the front
-        pass
+        if self.is_empty():
+            print("MT")
+            return
+        dequeued = self.front.value
+        self.front = self.front.next
+
+        if self.front is None:
+            self.rear = None
+        return dequeued
 
     def peek(self): #view the front element
-        pass
+        if self.is_empty():
+            return "MT"
+        print(self.front.value)
 
     def is_empty(self):
-        pass
+        return self.front is None
 
     def printQueue(self):
-        pass 
+        current = self.front
+        while current:
+            print(current) 
+            current = current.next
+        
                 
