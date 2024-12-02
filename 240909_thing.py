@@ -18,6 +18,11 @@ class LinkedList:
             print(current.value, end=" -> " if current.next else "\n")
             current = current.next
 
+    def append_node_begin(self, value):
+        new_node = Node(value)
+        new_node.next = self.head
+        self.head = new_node
+
     def append_node_end(self, value):
         new_node = Node(value)
         if not self.head:
@@ -26,21 +31,8 @@ class LinkedList:
             current = self.head
             while current.next:
                 current = current.next
-            current.next = new_node
-
-    def append_node_begin(self, value):
-        new_node = Node(value)
-        new_node.next = self.head
-        self.head = new_node
-
-    def search_node(self, value):
-        current = self.head
-        while current:
-            if current.value == value:
-                return True
-            current = current.next
-        return False
-    
+            current.next = new_node    
+            
     def delete_node(self, value):
         current = self.head
         prev = None
@@ -55,6 +47,15 @@ class LinkedList:
             return
         prev.next = current.next
         current = None
+
+    def search_node(self, value):
+        current = self.head
+        while current:
+            if current.value == value:
+                return True
+            current = current.next
+        return False
+
 
 
 ll = LinkedList()

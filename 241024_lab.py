@@ -1,38 +1,28 @@
-class Node:
-    def __init__(self, val):
-        self.val = val
+class TreeNode:
+    def __init__(self, data):
+        self.data = data
         self.left = None
-        self.right=None
+        self.right = None
 
-def preorder(node):
-    if node is None:
-        return
-    print(node.val, end=' ')
-    preorder(node.left)
-    preorder(node.right)
+class BinaryTree:
+    def __init__(self):
+        self.root=None
+    def in_order(self, node):
+        if node:
+            self.in_order(node.left)
+            print(node.data)
+            self.in_order(node.right)
 
-def inorder(node):
-    if node is None:
-        return
-    inorder(node.left)
-    print(node.data, end=' ')
-    inorder(node.right)
+n = BinaryTree()
+n.root = TreeNode(1)
+n.root.left = TreeNode(2)
+n.root.right = TreeNode(3)
+n.root.left.left = TreeNode(4)
+n.root.left.right = TreeNode(5)
+n.root.right.left = TreeNode(6)
+n.root.right.right = TreeNode(7)
 
-def postorder(node):
-    if node is None:
-        return
-    postorder(node.left)
-    postorder(node.right)
-    print(node.val, end=' ')
+n.in_order(n.root)
 
-n = Node('Dubai')
-n.left = Node('Deira')
-n.left.left = Node('Muraqqabat')
-n.left.right = Node('Muteena')
-n.right = Node('Bur Dubai')
-n.right.left = Node('Oud Metha')
-n.right.right = Node('Raffa')
 
-preorder(n)
-inorder(n)
-postorder(n)
+
